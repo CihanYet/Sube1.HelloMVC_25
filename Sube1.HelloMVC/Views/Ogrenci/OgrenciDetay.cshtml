@@ -1,0 +1,63 @@
+﻿@using Sube1.HelloMVC.Models.ViewModels;
+@model OgrenciDetayDTO
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OgrenciDetay</title>
+</head>
+<body>
+    <h1>Öğrenci Detayları</h1>
+   @*  @if (ViewData["ogrenci"] == null)
+    {
+        <p>Öğrenci Bulunamadı!</p>
+    }
+    else
+    {
+        <p>
+            ViewData ile gelen veri: @(((Ogrenci)ViewData["ogrenci"]!).Ad)
+        </p>
+    }
+
+    @if (ViewBag.student == null)
+    {
+        <p>Öğrenci Bulunamadı!</p>
+    }
+    else
+    {
+        <p>
+            ViewBag ile gelen öğrenci: @ViewBag.student.Ad
+        </p>
+    }
+
+    @if (Model == null)
+    {
+        <p>Öğrenci bulunamadı!</p>
+    }
+    else
+    {
+        <p>
+            Model ile gelen öğrenci: @Model.Ad
+        </p>
+    } *@
+
+    @if (Model==null)
+    {
+        <p>Öğrenci detayları bulunamadı!</p>
+    }
+    else
+    {
+        <p>
+            Öğrenci Bilgileri:@Model.Ogrenci!.Ad
+        </p>
+        <p>
+            Danışman Bilgileri:@Model.Ogretmen!.Ad
+        </p>        
+    }
+</body>
+</html>
