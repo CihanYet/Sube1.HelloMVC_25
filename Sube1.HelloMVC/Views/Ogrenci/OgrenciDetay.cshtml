@@ -1,5 +1,4 @@
-﻿@using Sube1.HelloMVC.Models.ViewModels;
-@model OgrenciDetayDTO
+﻿@model OgrenciDetayDTO
 @{
     Layout = null;
 }
@@ -13,7 +12,7 @@
 </head>
 <body>
     <h1>Öğrenci Detayları</h1>
-   @*  @if (ViewData["ogrenci"] == null)
+   @if (ViewData["ogrenci"] == null)
     {
         <p>Öğrenci Bulunamadı!</p>
     }
@@ -35,14 +34,14 @@
         </p>
     }
 
-    @if (Model == null)
+   @*  @if (Model == null)
     {
         <p>Öğrenci bulunamadı!</p>
     }
     else
     {
         <p>
-            Model ile gelen öğrenci: @Model.Ad
+            Model ile gelen öğrenci: @Model.Ogrenci.Ad
         </p>
     } *@
 

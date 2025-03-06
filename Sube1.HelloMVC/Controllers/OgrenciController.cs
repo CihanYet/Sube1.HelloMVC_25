@@ -7,29 +7,48 @@ namespace Sube1.HelloMVC.Controllers
     public class OgrenciController : Controller
     {
         public ViewResult Index()//Action
-        {     
+        {
             return View("AnaSayfa");
         }
 
-        public ViewResult OgrenciDetay()
+        public ViewResult OgrenciDetay(int id)
         {
-            //Ogrenci ogr = null;
-            //if (id == 1)
-            //{
-            //    ogr = new Ogrenci { Ogrenciid = 1, Ad = "Ali", Soyad = "Veli" };
-            //}
-            //else if (id == 2)
-            //{
-            //    ogr = new Ogrenci { Ogrenciid = 2, Ad = "Ahmet", Soyad = "Mehmet" };
-            //}           
-            //ViewData["ogrenci"] = ogr;
-            //ViewBag.student = ogr;
-            var ogr= new Ogrenci { Ogrenciid = 1, Ad = "Ali", Soyad = "Veli" };
-            var ogretmen = new Ogretmen { Ogretmenid = 1, Ad = "Cihan", Soyad = "Yetişken" };
+            Ogrenci ogr = null;
+            Ogretmen ogrt = null;
+            if (id == 1)
+            {
+                ogr = new Ogrenci { Ogrenciid = 1, Ad = "Ali", Soyad = "Veli" };
+                ogrt = new Ogretmen { Ad = "Osman", Soyad = "Yılmaz", Ogretmenid = 1 };
+            }
+            else if (id == 2)
+            {
+                ogr = new Ogrenci { Ogrenciid = 2, Ad = "Ahmet", Soyad = "Mehmet" };
+                ogrt = new Ogretmen { Ad = "Hakan", Soyad = "Demir", Ogretmenid = 2 };
+            }
+            ViewData["ogrenci"] = ogr;
+            ViewBag.student = ogr;
 
-            var dto = new OgrenciDetayDTO { Ogrenci = ogr, Ogretmen = ogretmen };
+            var dto = new OgrenciDetayDTO { Ogrenci = ogr, Ogretmen = ogrt };
 
             return View(dto);
+        }
+
+        public ViewResult OgrenciListe()
+        {
+            //Ogrenci ogr = new Ogrenci { Ogrenciid = 1, Ad = "Ali", Soyad = "Veli" };
+            //Ogrenci ogr1 = new Ogrenci { Ogrenciid = 2, Ad = "Ahmet", Soyad = "Mehmet" };
+
+            //List<Ogrenci> lst= new List<Ogrenci>();
+            //lst.Add(ogr);
+            //lst.Add(ogr1);
+
+            var lst = new List<Ogrenci>()
+            {
+                new Ogrenci { Ogrenciid = 1, Ad = "Ali", Soyad = "Veli" },
+                new Ogrenci { Ogrenciid = 2, Ad = "Ahmet", Soyad = "Mehmet" }
+            };
+
+            return View(lst);    
         }
     }
 }
