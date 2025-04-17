@@ -4,6 +4,5 @@
     {
         public Ogrenci? Ogrenci { get; set; }
         public Ogretmen? Ogretmen { get; set; }
-
     }
 }
