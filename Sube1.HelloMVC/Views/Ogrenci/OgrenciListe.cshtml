@@ -25,7 +25,7 @@
                     <td>@item.Ogrenciid</td>
                     <td>@item.Ad</td>
                     <td>@item.Soyad</td>
-                    <td><a href="/Ogrenci/StudentDetail/@item.Ogrenciid">Detay</a></td>
+                <td><a class="btn btn-sm btn-primary" href="/Ogrenci/StudentDetail/@item.Ogrenciid">Detay</a>  <a class="btn btn-sm btn-danger" href="/Ogrenci/OgrenciSil/@item.Ogrenciid" onclick="return confirm('Emin misiniz?')">Sil</a></td>
                 </tr>
             }
         </tbody>

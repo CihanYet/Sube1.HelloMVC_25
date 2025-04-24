@@ -34,6 +34,7 @@ namespace Sube1.HelloMVC.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult StudentDetail(int id)
         {
             using (var ctx = new OkulDbContext())
@@ -45,9 +46,9 @@ namespace Sube1.HelloMVC.Controllers
         [HttpPost]
         public IActionResult StudentDetail(Ogrenci ogr)
         {
-            using (var ctx=new OkulDbContext())
+            using (var ctx = new OkulDbContext())
             {
-                ctx.Entry(ogr).State=EntityState.Modified;
+                ctx.Entry(ogr).State = EntityState.Modified;
                 ctx.SaveChanges();
             }
             return RedirectToAction("OgrenciListe");
@@ -109,6 +110,17 @@ namespace Sube1.HelloMVC.Controllers
                 }
             }
             return View();
+        }
+
+        public IActionResult OgrenciSil(int id)
+        {
+            using (var ctx = new OkulDbContext())
+            {
+                var ogr = ctx.Ogrenciler.Find(id);
+                ctx.Ogrenciler.Remove(ogr);
+                ctx.SaveChanges();
+            }
+            return RedirectToAction(nameof(OgrenciListe));
         }
     }
 }
